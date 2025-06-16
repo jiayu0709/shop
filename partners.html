@@ -16,27 +16,26 @@
       max-width: 600px;
       margin: auto;
     }
-   .announce {
-    background-color: #fff;
-    padding: 16px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    text-align: center;
-    }
 
+    .announce {
+      background-color: #fff;
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
     .announce img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 12px;
+      width: 120px;
+      height: auto;
+      margin-bottom: 12px;
+    }
+    .announce-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+      font-weight: bold;
     }
 
-    .announce-text {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-    font-weight: bold;
-    }
-    
     .card-list {
       display: flex;
       flex-direction: column;
@@ -46,64 +45,78 @@
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
-      padding: 16px;
     }
+
     .card img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
     }
+
+    .card-inner {
+      padding: 16px;
+    }
+
+    .info-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+      height: 48px;
+      padding: 0 0; /* 讓整體與標題齊左 */
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .info-button:active {
+      background-color: #eee;
+      color: #000;
+    }
+
+    .info-arrow {
+      font-size: 22px;
+      color: inherit;
+    }
+
     .card-title {
       font-size: 18px;
       font-weight: bold;
       margin: 12px 0 6px 0;
     }
+
     .card-content {
       font-size: 14px;
       margin-bottom: 6px;
       color: #333;
       text-align: left;
     }
+
+    .card-content a {
+      color: #2196f3;
+      text-decoration: none;
+    }
+
     .highlight {
       font-weight: bold;
       color: #333;
-    }
-    .info-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff; /* 與卡片相同 */
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 16px;
-    margin-top: 20px;
-    text-decoration: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.2s, color 0.2s;
-    }
-
-    .info-button:active {
-    background-color: #eee; /* 點擊時變淺灰 */
-    color: #000; /* 文字變黑 */
-    }
-
-    .info-arrow {
-    font-size: 22px;
-    color: inherit; /* 跟隨 info-button 的 color */
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="announce">
-  <img src="images/rosalogo.png" alt="logo圖片" />
-  <div class="announce-text">
-    Rosa's School 學生、家長<br />
-    凡出示「<strong>小安平台學生資訊</strong>」<br /> 即可享有專屬優惠 🥰
+      <img src="images/rosalogo.png" alt="logo圖片" />
+      <div class="announce-text">
+        Rosa's School 學生、家長<br />
+        凡出示「<strong>小安平台學生資訊</strong>」 即可享有專屬優惠 🥰
+      </div>
+    </div>
+
+    <div class="card-list" id="partner-list"></div>
   </div>
-</div>
-<div class="card-list" id="partner-list"></div>
+
   <script>
     const partners = [
       {
@@ -132,14 +145,16 @@
       card.className = "card";
       card.innerHTML = `
         <img src="${partner.image}" alt="${partner.name}" />
-        <a class="info-button" href="${partner.shoplink}" target="_blank">
-          <span>商家資訊</span>
-          <span class="info-arrow">›</span>
-        </a>
-        <div class="card-title">${partner.name}</div>
-        <div class="card-content">📍 <a href="${partner.link}" target="_blank">${partner.address}</a></div>
-        <div class="card-content">📞 ${partner.phone}</div>
-        <div class="card-content highlight">優惠內容 ✨：${partner.offer}</div>
+        <div class="card-inner">
+          <a class="info-button" href="${partner.shoplink}" target="_blank">
+            <span>商家資訊</span>
+            <span class="info-arrow">›</span>
+          </a>
+          <div class="card-title">${partner.name}</div>
+          <div class="card-content">📍 <a href="${partner.link}" target="_blank">${partner.address}</a></div>
+          <div class="card-content">📞 ${partner.phone}</div>
+          <div class="card-content highlight">優惠內容 ✨：${partner.offer}</div>
+        </div>
       `;
       list.appendChild(card);
     });
