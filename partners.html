@@ -66,6 +66,26 @@
       background-color: #f9f9f9;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
+    .info-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-arrow {
+  font-size: 22px;
+  color: #333;
+}
   </style>
 </head>
 <body>
@@ -89,13 +109,18 @@
 
     const card = document.getElementById("partner-card");
     card.innerHTML = `
-      <img src="${partner.image}" alt="${partner.name}" />
-      <div class="card-title">${partner.name}</div>
-      <div class="card-content">📍 ${partner.address}</div>
-      <div class="card-content">📞 ${partner.phone}</div>
-      <div class="card-content highlight">優惠內容：${partner.offer}</div>
-      <a class="shop-link" href="${partner.link}" target="_blank">商家資訊</a>
-    `;
+  <img src="${partner.image}" alt="${partner.name}" />
+  <div class="card-title">${partner.name}</div>
+  <div class="card-content">
+    📍 <a href="${partner.link}" target="_blank">${partner.address}</a>
+  </div>
+  <div class="card-content">📞 ${partner.phone}</div>
+  <div class="card-content highlight">優惠內容：${partner.offer}</div>
+  <a class="info-button" href="${partner.shoplink}" target="_blank">
+    <span>商家資訊</span>
+    <span class="info-arrow">›</span>
+  </a>
+`;
   </script>
 </body>
 </html>
