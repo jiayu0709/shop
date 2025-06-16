@@ -56,22 +56,29 @@
       color: #d40000;
     }
     .info-button {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #f5f5f5;
-      color: #333;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 12px 16px;
-      margin-top: 10px;
-      text-decoration: none;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; /* 與卡片相同 */
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 16px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s, color 0.2s;
     }
+
+    .info-button:active {
+    background-color: #eee; /* 點擊時變淺灰 */
+    color: #000; /* 文字變黑 */
+    }
+
     .info-arrow {
-      font-size: 22px;
-      color: #333;
+    font-size: 22px;
+    color: inherit; /* 跟隨 info-button 的 color */
     }
   </style>
 </head>
