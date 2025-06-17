@@ -94,8 +94,7 @@
     }
 
     .card-content a {
-      color: #2196f3;
-      text-decoration: none;
+      color: #333;
     }
 
     .highlight {
@@ -224,7 +223,7 @@
           </a>
           <div class="card-title">${partner.name}</div>
           <div class="card-content">📍 <a href="${partner.link}" target="_blank">${partner.address}</a></div>
-          <div class="card-content">📞 ${partner.phone}</div>
+          <div class="card-content">📞 <a href="${partner.phone}" target="_blank">${partner.phone}</a></div>
           <div class="card-content highlight">優惠內容 ✨：${partner.offer}</div>
         </div>
       `;
